@@ -1,0 +1,24 @@
+ // for view
+
+
+author:
+cathegory:
+	?Works with : 
+	Version Number:
+	Edition (+Version):
+Target platforms:
+Size: 
+Home(Web) page:
+Keywords: 
+Date Added:  
+Date Last Updated: 	
+
+//for user
+
+кодовое имя : 
+версия:
+редакция:
+
+dependings : name - 
+
+список файлов : ...

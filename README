@@ -1,0 +1,15 @@
+msysgit - это клиент для работы с удаленным репозиторием git
+
+прежде чем начать работу нужно позаботиться о безопастности :) -> http://help.github.com/win-set-up-git/(раздел про генерацию ssh)
+
+http://help.github.com/ - здесь в отделе Troubleshooting описано некоторое множество часто встречаемым проблем, поэтому лезем сюда :)
+
+а вот сообственно и линки про сам git(в инете их полно, это то что я читал):
+
+http://kb.etersoft.ru/%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_git
+http://habrahabr.ru/blogs/development/68341/
+http://habrahabr.ru/blogs/Git/75990/
+http://habrahabr.ru/blogs/Git/106912/
+http://habrahabr.ru/blogs/Git/104198/
+http://habrahabr.ru/blogs/Git/60347/
+
