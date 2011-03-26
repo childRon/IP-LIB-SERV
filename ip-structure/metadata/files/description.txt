@@ -1,0 +1,10 @@
+
+data_added:
+data_updated:
+
+components(short names of components):
+**size:
+
+native_name:
+
+**destinations(list of servers):

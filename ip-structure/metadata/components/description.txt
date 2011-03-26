@@ -1,0 +1,23 @@
+# consist info about files(src, media), 
+# and also can include metadata about sequence of installing this component and other features
+
+# files can consist as real data(for example py-code) 
+# as list of links to servers which store files with real data
+
+# ** - means is not finish decision
+
+src_files:
+(list of src files in folder "components/src")
+
+
+media_files:
+(media file - is file of media or other notcodesource-file, folder "components/media")
+
+**home(Web) page:
+
+**keywords: 
+
+*src_sequence:
+
+date added:  
+date last updated: 

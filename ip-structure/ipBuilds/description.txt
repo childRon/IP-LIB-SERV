@@ -1,0 +1,23 @@
+
+----fields----
+
+author:
+name:
+short name:
+version:
+
+*description:
+edition:
+*edition description:
+core required(lowest version of suit):
+taget platform:
+size(defines after loading components, or after some file updates):
+
+codename(build as [shortname]_[edition]_[version]_[target-platform-shortname]):
+
+dependings(codenames of other components):
+
+files_metadata(file of this component metadata, name od metadata file are built as [codename]_meta, file stores in
+			directory "metadata/components"): 
+			
+cathegories:
