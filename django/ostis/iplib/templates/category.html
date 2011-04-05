@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block content %}
+Категории
+{% for category in categories %}
+<h2>{{ category.title }}</h2>
+<p>{{ category.description }}</p>
+<a href="../category/{{ category.id }}/">{{ category.title }}</a>
+{% endfor %}
+{% endblock %}

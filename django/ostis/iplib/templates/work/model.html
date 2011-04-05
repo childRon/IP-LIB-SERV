@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>{% block title %} {% endblock %}</title>
+  <link href="main.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+  <div id="container">
+   <div id="header">Библиотека ip-компонентов</div>
+   <div id="sidebar">
+    <p><a href="iplib/">Стартовая страница</a></p>
+    <p><a href="iplib/components/">Компоненты</a></p>
+    <p><a href="iplib/categories/">Категории</a></p>
+   </div>
+   <div id="content">
+	{% block content %} 
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	{% endblock %}
+   </div>
+   <div id="footer">&copy; iplib</div>
+  </div> 
+ </body>
+</html>

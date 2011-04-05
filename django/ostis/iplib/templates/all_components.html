@@ -1,0 +1,14 @@
+﻿{% extends "base.html" %}
+{% block content %}
+
+<h2>Компоненты</h2>
+<ul>
+{% for сomponent in components %}
+<li>
+<h3><a href="../component/{{ сomponent.id }}/">{{ сomponent.title }}</a></h3>
+<p>Описание: {{ сomponent.description }}</p>
+<li>
+{% endfor %}
+</ul>
+
+{% endblock %}

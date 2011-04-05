@@ -1,0 +1,22 @@
+﻿{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ component.title }}</h2>
+<p>{{ component.description }}</p>
+<br>
+{% for edition in component.edition_set.all %}
+	<h3>Издание: {{ edition.title }}</h2>
+	<p>Описание: {{ edition.description }}</p>
+	<p>Версии:</p>
+	<ul>
+	{% for version in edition.version_set.all %}
+		<li>
+		<a href="version/{{ version.id }}/">{{ version.number }}</a>
+		</li>
+	{% endfor %}
+	</ul>
+	<br>
+	<br>
+{% endfor %}
+
+{% endblock %}
