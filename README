@@ -13,3 +13,43 @@ http://habrahabr.ru/blogs/Git/106912/
 http://habrahabr.ru/blogs/Git/104198/
 http://habrahabr.ru/blogs/Git/60347/
 
+
+Python, Django и иже с ним.
+
+Установка и настройка:
+1. Ставим Python.
+2. Ставим mysql. Настраиваем, как написано тут: http://djbook.ru/ch05s03.html 
+3. Ставим Django:
+ - Качаем по ссылке: http://dl.dropbox.com/u/7762111/Python%26Django/Django/Django-1.3.tar.gz
+ - Распаковываем в любую директорию.
+ - Запускаем команду setup.py install 
+   Чтобы проверить установку, запускаем python и выполняем следующие команды:
+       >>> import django
+       >>> print django.get_version()
+       1.3
+4. Ставим MySQL-python:
+ - Качаем по ссылке: http://dl.dropbox.com/u/7762111/Python%26Django/MySQl-python/MySQL-python-1.2.2.win32-py2.6.exe
+ - Устанавливаем.
+5. Устанавливаем проект:
+ - Копируем в нужную нам директорию папку Django с github. 
+ - В файле ostis\settings.py вписываем логин и пароль для доступа к базе, а также имя базы. Остальное не меняем. Не забываем запустить MySQL.
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',   # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'iplib',                       # Or path to database file if using sqlite3.
+        'USER': 'root',                         # Not used with sqlite3.
+        'PASSWORD': 'python26',                 # Not used with sqlite3.
+        'HOST': 'localhost',                    # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                             # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+ - Переходим в папку iplib и выполняем команду manage.py syncdb По требованию вводим логин и пароль для учетной записи админа.
+ - Запускаем командой manage.py runserver
+ - Переходим к адресу http://127.0.0.1:8000/iplib/ 
+ - По адресу http://127.0.0.1:8000/admin - администрирование
+
+Ресурсы:
+Django: http://www.djangoproject.com/
+DjangoBook: http://djbook.ru/ (рекомендую)
