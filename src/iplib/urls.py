@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'ostis.views.home', name='home'),
     # url(r'^ostis/', include('ostis.foo.urls')),
-    url(r'^iplib/', include('ostis.iplib.urls')),
+    url(r'^app/', include('iplib.app.urls')),
     
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

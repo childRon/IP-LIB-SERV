@@ -1,0 +1,12 @@
+﻿# '-' -> folder
+# '*' -> file
+
+структура компонентов:
+
+-сomponents
+	-[component_codename].zip
+		-metadata
+			*meta.scn
+		-src
+		-media
+		*ip-buid.scn

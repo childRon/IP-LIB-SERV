@@ -3,21 +3,22 @@
 
 # files can consist as real data(for example py-code) 
 # as list of links to servers which store files with real data
-
+# '[codename].zip' - it is a folder where ipComponent exist
 # ** - means is not finish decision
 
 src_files:
-(list of src files in folder "components/src")
+(list of src files in folder "components/[codename].zip/src")
 
 
 media_files:
-(media file - is file of media or other notcodesource-file, folder "components/media")
+(media file - is file of media or other notcodesource-file, folder "components/[codename].zip/media")
 
 **home(Web) page:
 
 **keywords: 
 
 *src_sequence:
+(some text info how provide some code and code also)
 
 date added:  
 date last updated: 

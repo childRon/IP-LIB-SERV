@@ -15,9 +15,9 @@ size(defines after loading components, or after some file updates):
 
 codename(build as [shortname]_[edition]_[version]_[target-platform-shortname]):
 
-dependings(codenames of other components):
+dependings(codenames of other components # min version for requered ones):
 
 files_metadata(file of this component metadata, name od metadata file are built as [codename]_meta, file stores in
 			directory "metadata/components"): 
 			
-cathegories:
+cathegories (list of cathegories):

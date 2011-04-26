@@ -1,8 +1,8 @@
 ﻿# -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 # from django.template import Context
-from django.http import HttpResponse,  Http404
-from ostis.iplib.models import Component, Edition, Version, Category
+from django.http import HttpResponse, Http404
+from iplib.app.models import Component, Edition, Version, Category
 
 
 def home(request):

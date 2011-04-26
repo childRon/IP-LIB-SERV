@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from ostis.iplib.views import *
+from iplib.app.views import *
 
 urlpatterns = patterns('',
     url(r'^$', home),
