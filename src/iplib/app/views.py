@@ -10,25 +10,37 @@ def home(request):
         return render_to_response('home.html')
     
 def all_components(request):
-    
-    html = "все компоненты"
-    return HttpResponse(html)
-    
+    components = VersionedComponent.objects.all()
+    return render_to_response('all_components.html', {'components': components})
+
 def all_categories(request):
-    html = "Все Категории"
-    return HttpResponse(html)
+    categories = Category.objects.all()
+    return render_to_response('all_categories.html', {'categories': components})
 
-def component(request, component_id):
-    html = "Какой-то компонент"
-    return HttpResponse(html)
+def component(request, shortName):
+    componentDefinition = ComponentDefinition.objects.filter(short_name=shortName)
+    versions = VersionedComponent.objects.all().filter(component=componentDefinition)
+    numbers = {}
+    for version in versions:
+        numbers.append(version.version_number)
+
+    return render_to_response('component.html', {'version_numbers': numbers, 'component':componentDefinition})
     
-def version(request, component_id, version_id):
-    html = "Какая-то версия"
-    return HttpResponse(html)
-    
+def version(request, shortName, version_id):
+    try:
+       version_id = int(version_id)
+    except ValueError:
+        raise Http404()
+    versionedComponent = VersionedComponent.objects.get(id=version_id)
+    component = versionedComponent.component;
+    return render_to_response('versionedComponent.html', {'versioned_component': versionedComponent, 'component':component})
+
 def category(request, category_id):
-
-    html = "Какая-то категория"
-    return HttpResponse(html)
+    try:
+       category_id = int(category_id)
+    except ValueError:
+        raise Http404()
+        category = Category.objects.get(id=category_id)
+    return render_to_response('category.html', {'category': category})
 
 
