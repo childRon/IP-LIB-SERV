@@ -1,7 +1,6 @@
 from django.contrib import admin
-from iplib.app.models import Component, Edition, Version, Category
+from iplib.app.models import ComponentDefinition, VersionedComponent, Category
 
-admin.site.register(Component)
-admin.site.register(Edition)
-admin.site.register(Version)
+admin.site.register(ComponentDefinition)
+admin.site.register(VersionedComponent)
 admin.site.register(Category)
