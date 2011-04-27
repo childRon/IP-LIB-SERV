@@ -7,7 +7,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'ostis.views.home', name='home'),
-    # url(r'^ostis/', include('ostis.foo.urls')),
     url(r'^app/', include('iplib.app.urls')),
     
     # Uncomment the admin/doc line below to enable admin documentation:
