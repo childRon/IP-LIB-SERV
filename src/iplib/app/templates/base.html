@@ -1,13 +1,49 @@
-﻿<html>
-<style type="text/css">
-body {color: #efd; background: #42aaff; padding: 0 5em; margin: 0}
-h1 {padding: 2em 1em; background: #3a75c4}
-h2 {color: #131ca6; margin-top: 2em}
-p {margin: 1em 0}
-</style>
-<body>
-<h1>Библиотека ip-компонентов</h1>
-{% block content %}
-{% endblock %}
-</body>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="author" content="Haran" />
+    <link rel="stylesheet" type="text/css" href="purplehaze.css" title="Purple Haze Stylesheet" />
+
+    <title>Библиотека ip-компонентов</title>
+  </head>
+
+  <body>
+    <div id="top"></div>
+  
+    <!-- ###### Header ###### -->
+
+    <div id="header">
+      <span class="headerTitle">Библиотека ip-компонентов</span>
+      <div class="headerLinks">
+        <a href="http://www.ostis.net/">OSTIS</a>
+      </div>
+    </div>
+
+    <!-- ###### Side Boxes ###### -->
+
+    <div class="sideBox LHS">
+      <div>Навигация</div>
+      <a href="/">Home</a>
+      <a href="components/">Компоненты</a>
+      <a href="categories/">Категории</a>
+    </div>
+
+    <!-- ###### Body Text ###### -->
+
+    <div id="bodyText">
+		{% block content %}
+		{% endblock %}
+    </div>
+    
+    <!-- ###### Footer ###### -->
+
+    <div><div id="footer">  <!-- NB: outer <div> required for correct rendering in IE -->
+      <div>
+        <strong>© 2011 С. Кушмар, А. Мисан</strong>
+      </div>
+    </div></div>
+  </body>
 </html>
