@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     url(r'^category/(\d+)/$', category),
     url(r'^component/[A-Za-z]+/category/(\d+)/$', category),
     url(r'^component/[A-Za-z]+/version/[\d*[.]+]*/category/(\d+)/$', category),
+    url(r'^category/\d+/component/([A-Za-z]+)/$', component),
+    url(r'^component/[A-Za-z]+/category/\d+/component/([A-Za-z]+)/$', component),
+    url(r'^component/[A-Za-z]+/version/[\d*[.]+]*/category/\d+/component/([A-Za-z]+)/$', component),
     url(r'^component/([A-Za-z]+)/version/([\d*[.]+]*)/download/$', download),
     )
 

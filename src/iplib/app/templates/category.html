@@ -10,4 +10,13 @@
            {% if not forloop.last %}, {% endif %}
       {% endfor %}
    {% endif %}
+
+    {% if category.componentdefinition_set.all %}
+        <p>Компоненты данной категории:</p>
+        {% for component in category.componentdefinition_set.all %}
+             <a href="component/{{ component.short_name }}/">{{ component.title }}</a>
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}
