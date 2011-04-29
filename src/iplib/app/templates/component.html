@@ -70,4 +70,19 @@
         {% endif %}
     </table>
 
+    {% if versioned_component %}
+            <br><br>
+           <center>
+          <input type="button" onclick="javascript:load('items');" id="xitems" value="[Загрузить]" >
+            <div id="items" style="display:none">
+                <form action="/download/" method="get">
+                    <br>
+                    <a href="download">Скачать</a>
+                    <br><input type="checkbox" >-c зависимостями-
+                </form>
+            </div>
+        </center>
+    {% endif %}
+
+
 {% endblock %}

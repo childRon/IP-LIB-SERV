@@ -7,14 +7,23 @@
     <meta name="author" content="Haran" />
 
     <title>Библиотека ip-компонентов</title>
-
+    <script language="JavaScript" type="text/javascript">
+    document.getElementById('items').style.display='none';
+    function load(item) {
+    obj=document.getElementById(item);
+    col=document.getElementById("x" + item);
+    if (obj.style.display=="none") { obj.style.display="block"; col.value="[Скрыть]"; }
+    else { obj.style.display="none"; col.value="[Загрузить]"; } }
+    </script>
     <style type="text/css">
 .topOfPage, q, h1, h2, h3, .headerTitle, .headerLinks, .headerLinks *, .sideBox div, #footer *
 { /* Text Color: */ color: #a0a0ff; }
 
 q, h2, #header, .sideBox, .sideBox div, #footer
 { /* Border Color: */ border-color: #c0c0ff; }
-
+.margin {
+margin-left:15px;
+}
 #header, .sideBox div, .sideBox a:hover
 { /* Background Color (darker): */ background-color: #f0f0ff; }
 

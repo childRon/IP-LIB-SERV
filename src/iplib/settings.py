@@ -11,6 +11,7 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+CATALOG_IPCOMPONENTOV='E:/Development/Tools/msysgit/msysgit/projects/IP-LIB-SERV/ip-structure/components'
 
 MANAGERS = ADMINS
 
