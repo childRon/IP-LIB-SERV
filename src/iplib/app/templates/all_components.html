@@ -1,14 +1,18 @@
 ﻿{% extends "base.html" %}
 {% block content %}
 
-<h2>Компоненты</h2>
-<ul>
-{% for сomponent in components %}
-<li>
-<h3><a href="../component/{{ сomponent.id }}/">{{ сomponent.title }}</a></h3>
-<p>Описание: {{ сomponent.description }}</p>
-<li>
-{% endfor %}
-</ul>
+    <h2>Компоненты</h2>
+    {% if components %}
+    <ul>
+        {% for component in components %}
+            <li>
+            <h3><a href="../component/{{ component.component.short_name }}/">{{ component.component.title }}</a></h3>
+            <p>Описание: {{ component.component.description }}</p>
+            </li>
+        {% endfor %}
+    <ul>
+    {% else %}
+        Нет компонентов
+    {% endif %}
 
 {% endblock %}

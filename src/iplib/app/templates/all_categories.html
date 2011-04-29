@@ -2,13 +2,24 @@
 {% block content %}
 
 <h2>Категории</h2>
-<ul>
-{% for category in categories %}
-<li>
-<h3><a href="../category/{{ category.id }}/">{{ category.title }}</a></h3>
-<p>Описание: {{ category.description }}</p>
-<li>
-{% endfor %}
-</ul>
+     {% if categories %}
+     <ul>
+        {% for category in categories %}
+            <li>
+                <h3><a href="../category/{{ category.id }}/">{{ category.title }}</a></h3>
+                <p>Описание: {{ category.description }}</p><br>
+                {% if category.child_categories_set %}
+                    <p>Подкатегории:</p>
+                    {% for child in category.child_categories_set %}
+                           <a href="../category/{{ child.id }}/">{{ child.title }}</a>
+                            {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        Нет категорий
+    {% endif %}
 
 {% endblock %}

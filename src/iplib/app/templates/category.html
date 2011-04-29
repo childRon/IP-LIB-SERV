@@ -1,9 +1,13 @@
 ﻿{% extends "base.html" %}
 {% block content %}
-Категории
-{% for category in categories %}
-<h2>{{ category.title }}</h2>
-<p>{{ category.description }}</p>
-<a href="../category/{{ category.id }}/">{{ category.title }}</a>
-{% endfor %}
+
+Категория <h2>{{ category.title }}</h2>
+<p>{{ category.description }}</p><br>
+  {% if category.child_categories_set %}
+      <p>Подкатегории:</p>
+      {% for child in category.child_categories_set %}
+            <a href="../category/{{ child.id }}/">{{ child.title }}</a>
+           {% if not forloop.last %}, {% endif %}
+      {% endfor %}
+   {% endif %}
 {% endblock %}

@@ -1,12 +1,16 @@
 # Django settings for ostis project.
-import os.path
+import os
+
+def rel(*x):
+    return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x).replace('\\','/')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
+COMPRESS = True
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
 
 MANAGERS = ADMINS
 
@@ -45,44 +49,51 @@ USE_I18N = True
 USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+# Example: "/home/static_media/static_media.lawrence.com/static_media/"
+MEDIA_ROOT = rel('media')
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# URL that handles the static_media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+# Examples: "http://static_media.lawrence.com/static_media/", "http://example.com/static_media/"
+MEDIA_URL = '/media/'
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
+
+# Absolute path to the directory static_media files should be collected to.
+# Don't put anything in this directory yourself; store your static_media files
+# in apps' "static_media/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/static_media/static_media.lawrence.com/static_media/"
 STATIC_ROOT = ''
 
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
+# URL prefix for static_media files.
+# Example: "http://static_media.lawrence.com/static_media/"
 STATIC_URL = '/static/'
-
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+# URL prefix for admin static_media files -- CSS, JavaScript and images.
+# Make sure to use a trailing slash.
+# Examples: "http://foo.com/static_media/admin/", "/static_media/admin/".
 
-# Additional locations of static files
+
+# Additional locations of static_media files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    rel('static'),
 )
 
-# List of finder classes that know how to find static files in
+# List of finder classes that know how to find static_media files in
 # various locations.
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+   # "django.contrib.staticfiles.finders.DefaultStorageFinder",
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'j5e6omuu%x(ni$wken0yi!unv+%lkh3(i%lu8^%&zqk^9ne+r)'
 
@@ -92,6 +103,8 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
+
+DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -104,7 +117,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'iplib.urls'
 
 TEMPLATE_DIRS = (
-        os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+        rel('templates'),
 )
 
 INSTALLED_APPS = (
@@ -120,6 +133,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -143,3 +157,5 @@ LOGGING = {
         },
     }
 }
+
+# CACHE_BACKEND = 'memcached://127.0.0.1:11211/'

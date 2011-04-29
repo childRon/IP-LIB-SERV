@@ -15,32 +15,28 @@ def all_components(request):
 
 def all_categories(request):
     categories = Category.objects.all()
-    return render_to_response('all_categories.html', {'categories': components})
+    return render_to_response('all_categories.html', {'categories': categories})
 
 def component(request, shortName):
-    componentDefinition = ComponentDefinition.objects.filter(short_name=shortName)
+    componentDefinition = ComponentDefinition.objects.get(short_name=shortName)
     versions = VersionedComponent.objects.all().filter(component=componentDefinition)
-    numbers = {}
+    numbers = []
     for version in versions:
         numbers.append(version.version_number)
-
     return render_to_response('component.html', {'version_numbers': numbers, 'component':componentDefinition})
     
-def version(request, shortName, version_id):
-    try:
-       version_id = int(version_id)
-    except ValueError:
-        raise Http404()
-    versionedComponent = VersionedComponent.objects.get(id=version_id)
-    component = versionedComponent.component;
-    return render_to_response('versionedComponent.html', {'versioned_component': versionedComponent, 'component':component})
+def version(request, shortName, number):
+    componentDefinition = ComponentDefinition.objects.get(short_name=shortName);
+    versionedComponent = VersionedComponent.objects.get(version_number=number, component = componentDefinition)
+    return render_to_response('component.html', {'versioned_component': versionedComponent, 'component':componentDefinition})
 
 def category(request, category_id):
     try:
        category_id = int(category_id)
+       category = Category.objects.get(id=category_id)
     except ValueError:
         raise Http404()
-        category = Category.objects.get(id=category_id)
+
     return render_to_response('category.html', {'category': category})
 
 

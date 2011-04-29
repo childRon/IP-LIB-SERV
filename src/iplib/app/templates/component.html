@@ -1,8 +1,73 @@
 ﻿{% extends "base.html" %}
 {% block content %}
 
-<h2>{{ component.title }}</h2>
-<p>{{ component.description }}</p>
-<br>
+    <h2 align="center">
+        {{ component.title }}
+        {% if not version_numbers %}
+            {% if versioned_component %}
+                . Версия {{ versioned_component.version_number }}
+            {% endif %}
+        {% endif %}
+    </h2>
+    <table border="0" align="center">
+        <tr>
+            <td align="left">Описание:</td>
+            <td>{{ component.description }}</td>
+        </tr>
+        <tr>
+            <td align="left">Краткое имя:</td>
+            <td>{{ component.short_name }}</td>
+        </tr>
+        <tr>
+            <td align="left">ОС:</td>
+            <td>{{ component.platform }}</td>
+        </tr>
+        <tr>
+            <td align="left">Модификации:</td>
+            <td>{{ component.editions }}</td>
+        </tr>
+        {% if component.categories %}
+        <tr>
+            <td align="left">Категории:</td>
+            <td>
+                {% for category in component.categories.all %}
+                    <a href="category/{{ category.id }}/">{{ category.title }}</a>
+                    {% if not forloop.last %}, {% endif %}
+                {% endfor%}
+            </td>
+        </tr>
+        {% endif %}
+        {% if version_numbers %}
+        <tr>
+            <td align="left">Версии:</td>
+            <td>
+                {% for version in version_numbers %}
+                    <a href="../{{ component.short_name }}/version/{{ version }}">{{ version }}</a>
+                    {% if not forloop.last %}, {% endif %}
+                {% endfor%}
+            </td>
+        </tr>
+        {% else %}
+            {% if versioned_component %}
+                <tr>
+                     <td align="left">Дата добавления:</td>
+                    <td>{{ versioned_component.date_added }}</td>
+                </tr>
+                <tr>
+                     <td align="left">Автор:</td>
+                    <td>{{ versioned_component.author }}</td>
+                </tr>
+                <tr>
+                     <td align="left">Минимальная версия ядра suit:</td>
+                    <td>{{ versioned_component.suit_version }}</td>
+                </tr>
+                <tr>
+                     <td align="left">Зависимости:</td>
+                    <td>{{ versioned_component.depending_codes }}</td>
+                </tr>
+
+             {% endif %}
+        {% endif %}
+    </table>
 
 {% endblock %}
